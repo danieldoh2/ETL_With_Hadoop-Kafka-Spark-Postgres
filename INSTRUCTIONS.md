@@ -54,6 +54,7 @@ hadoop
 
 * Write a MapReduce job to count the number of events by type.
 * Aggregate events by location to identify high-risk areas.
+* Update README.md with how to launch and run your solution.
 
 #### Requirements
 
