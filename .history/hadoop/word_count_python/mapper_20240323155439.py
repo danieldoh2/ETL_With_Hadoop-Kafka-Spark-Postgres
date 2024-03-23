@@ -10,7 +10,6 @@ def map_reduce_with_stdin():
     for line in sys.stdin:
         words = line.split(',')
         print(words[1], '\t', 1)
-        print(words[3], '\t', 1)
 
 
 def map_reduce_with_opened_file():
@@ -19,7 +18,6 @@ def map_reduce_with_opened_file():
     for line in sys.stdin:
         words = line.split(',')
         print(words[1], '\t', 1)
-        print(words[3], '\t', 1)
 
 # Execution of the file. if the file is run directly, it will try to run with stdin first
 # If that fails, it will set stdin to the file and run the map reduce function that way
