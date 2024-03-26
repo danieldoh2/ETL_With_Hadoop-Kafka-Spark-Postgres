@@ -16,7 +16,7 @@ RUN chmod a+x ./*
 
 ENV MAPPER="mapper.py"
 ENV REDUCER="reducer.py"
-ENV INPUT="/input/README.txt"
+ENV INPUT="/input/simulated_health_events.csv"
 
 ADD run.sh /run.sh
 RUN chmod a+x /run.sh
