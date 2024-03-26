@@ -28,20 +28,19 @@ wordcount-python:
 event-counter:
 	$(CONTAINER_CMD) build -t hadoop-event-counter ./word_count_python
 	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -mkdir -p /input/
-	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -copyFromLocal -f ./simulated_health_events.csv /input/
+	$(CONTAINER_CMD) run -v $(PWD):/data $(RUN_PARAMS) hadoop fs -copyFromLocal -f /data/simulated_health_events.csv /input/
 	$(CONTAINER_CMD) run --network ${DOCKER_NETWORK} --env-file ${ENV_FILE} hadoop-event-counter
 	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -cat /output/*
 	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -rm -r /output
 	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -rm -r /input
 
 location-mapreducer:
-	$(CONTAINER_CMD) build -t hadoop-location-mapreducer ./word_count_python
-	# Assuming the same input file and HDFS setup as event-counter
-	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -copyFromLocal -f ./simulated_health_events.csv /input/
+	$(CONTAINER_CMD) build -t hadoop-location-mapreducer ./word_count_python 
+	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -mkdir -p /input/
+	$(CONTAINER_CMD) run -v $(PWD):/data $(RUN_PARAMS) hadoop fs -copyFromLocal -f /data/simulated_health_events.csv /input/
 	$(CONTAINER_CMD) run --network ${DOCKER_NETWORK} --env-file ${ENV_FILE} hadoop-location-mapreducer
 	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -cat /output/*
 	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -rm -r /output
 	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -rm -r /input
-
 
 hadoop_solved: event-counter location-mapreducer
