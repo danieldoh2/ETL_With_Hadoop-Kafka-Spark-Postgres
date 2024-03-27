@@ -30,9 +30,9 @@ event-counter:
 	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -mkdir -p /input/
 	$(CONTAINER_CMD) run -v $(PWD):/data $(RUN_PARAMS) hadoop fs -copyFromLocal -f /data/simulated_health_events.csv /input/
 	$(CONTAINER_CMD) run --network ${DOCKER_NETWORK} --env-file ${ENV_FILE} hadoop-event-counter
+	$(CONTAINER_CMD) run --network ${DOCKER_NETWORK} --env-file ${ENV_FILE} -v $(PWD):/local bde2020/hadoop-base:2.0.0-hadoop3.2.1-java8 hadoop fs -get /output/* /local/
 	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -cat /output/*
-	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -rm -r /output
-	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -rm -r /input
+	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -rm -r /input 
 
 location-mapreducer:
 	$(CONTAINER_CMD) build -t hadoop-location-mapreducer ./word_count_python 
