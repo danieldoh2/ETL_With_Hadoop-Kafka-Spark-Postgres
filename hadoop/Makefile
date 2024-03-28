@@ -26,7 +26,7 @@ wordcount-python:
 	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -rm -r /input
 
 event-counter:
-	$(CONTAINER_CMD) build -t hadoop-event-counter ./word_count_python
+	$(CONTAINER_CMD) build -t hadoop-event-counter ./event_counter
 	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -mkdir -p /input/
 	$(CONTAINER_CMD) run -v $(PWD):/data $(RUN_PARAMS) hadoop fs -copyFromLocal -f /data/simulated_health_events.csv /input/
 	$(CONTAINER_CMD) run --network ${DOCKER_NETWORK} --env-file ${ENV_FILE} hadoop-event-counter
@@ -35,7 +35,7 @@ event-counter:
 	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -rm -r /input 
 
 location-mapreducer:
-	$(CONTAINER_CMD) build -t hadoop-location-mapreducer ./word_count_python 
+	$(CONTAINER_CMD) build -t hadoop-location-mapreducer ./location_mapreducer
 	$(CONTAINER_CMD) run $(RUN_PARAMS) hadoop fs -mkdir -p /input/
 	$(CONTAINER_CMD) run -v $(PWD):/data $(RUN_PARAMS) hadoop fs -copyFromLocal -f /data/simulated_health_events.csv /input/
 	$(CONTAINER_CMD) run --network ${DOCKER_NETWORK} --env-file ${ENV_FILE} hadoop-location-mapreducer
