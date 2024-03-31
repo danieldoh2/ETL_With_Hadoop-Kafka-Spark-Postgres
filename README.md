@@ -1,4 +1,4 @@
-(## finalized contents are in main branch ##)
+## (finalized contents are in main branch) ##
 
 # Project Overview: Epidemic Engine Data Pipeline
 
