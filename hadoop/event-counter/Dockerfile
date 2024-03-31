@@ -10,16 +10,15 @@ RUN apt install -y python3 python3-pip
 RUN mkdir /app
 WORKDIR /app
 # add the mapper, reducer
-ADD mapper.py ./
-ADD reducer.py ./
+ADD count_mapper.py ./
+ADD count_reducer.py ./
 RUN chmod a+x ./*
 
-ENV MAPPER="mapper.py"
-ENV REDUCER="reducer.py"
+ENV MAPPER="count_mapper.py"
+ENV REDUCER="count_reducer.py"
 ENV INPUT="/input/simulated_health_events.csv"
 ENV DATA_LOC="/app/simulated_health_events.csv"
 ENV DEBUG='false'
-
 
 ADD run.sh /run.sh
 RUN chmod a+x /run.sh
