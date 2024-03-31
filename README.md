@@ -6,6 +6,6 @@ cd to root directory hadoop to run commands
 
 run make-target commands to aggregate jobs by location and events 
 
-haddop should not be launched locally but through docker compose file and makefile commands
+hadoop should not be launched locally but through docker compose file and makefile commands
 
 run make hadoop_solved to get solution
