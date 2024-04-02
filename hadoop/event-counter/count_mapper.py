@@ -10,7 +10,6 @@ def map_reduce_with_stdin():
     for line in sys.stdin:
         words = line.strip().split(',')
         print(words[1], '\t', 1)
-        print(words[3], '\t', 1)
 
 
 if __name__ == '__main__':
