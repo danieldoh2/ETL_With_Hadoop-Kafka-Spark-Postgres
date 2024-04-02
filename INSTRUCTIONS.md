@@ -77,8 +77,6 @@ Here are some things that may be helpful while you are trying to build this solu
   * `hadoop fs -get /local-output-reduced ./ # get a file from the hdfs filesystem`
   * `hadoop fs -put ./simulated_health_events.csv /input/ # put a file in hdfs to make it available to hadoop`
 
-
-
 ### Part 2: Real-time Stream Processing with Apache Flink
 
 #### Objective
@@ -87,10 +85,10 @@ Implement real-time data processing using Apache Flink to identify immediate tre
 
 #### Tasks
 
-TBD
+Canceled.
 
 ## Project 2
-### Part 1: Data Ingestion and Categorization with Kafka
+### Part 1: Data Ingestion and Categorization with Kafka (Due: Apr. 09)
 
 #### Objective
 
@@ -98,30 +96,99 @@ Develop a Kafka-based system to ingest and categorize incoming health event data
 
 #### Tasks
 
-TBD
+* Create a Kafka Consumer:
+  * Using the stream of health_events at `44.201.154.178:9092` on the topic `health_events`, collect the events.
+* Using the events from your consumer, create 3 topics (`hospital_admission`, `emergency_incident`, `vaccination`) and broadcast the appropriate events using your own Kafka Producers.
+* Using the events from your consumer, create 3 topics (`low`, `medium`, `high`) and broadcast the appropriate events using your own Kafka Producers.
 
-### Part 2: Advanced Analytics with Apache Spark
+#### Requirements
+
+* Implement at least 6 producers for different event types.
+* Ensure data integrity during ingestion and categorization.
+* Create a comprehensive README detailing the design and operation of your Kafka setup.
+* Everything must run in a container and be launchable with a docker-compose.yml (or Makefile)
+
+#### Tips
+
+* Check out https://github.com/bitnami/containers.git and `/bitnami-containers/bitnami/kafka` in particular.
+
+### Part 2: Exploring with Apache Spark (Due: Apr. 16)
 
 #### Objective
 
-Leverage Apache Spark for in-depth analysis of health event data to predict potential health risks.
+Utilize Apache Spark for deep analysis of health event data to identify trends and anomalies.
 
 #### Tasks
 
-TBD
+* Data Loading:
+  Load categorized data from Kafka topics into Spark DataFrames for processing.
 
-### Part 3: Workflow Orchestration with Apache Airflow
+* Exploratory Data Analysis (EDA):
+  Conduct EDA to understand the distributions, correlations, and patterns within the data.
+  Focus on key metrics like event frequency, geographical distribution, and event type relationships.
+
+#### Requirements
+
+* Detailed analysis notebook with visualizations of EDA and model performance metrics.
+* Tools will continue to work even with new data
+
+#### Tips
+
+* Check out https://buspark.io/documentation/project-guides/eda_example
+* You can expect some scaffolding to launch Apache Spark soon.
+
+### Part 3: Advanced Analytics with Apache Spark (Due: Apr. 25)
+
+#### Objective
+
+Predict potential health risks with Apache Spark.
+A stream of "outcomes" will be launched as well as a set of labeled historical data provided.
+However, the more information you have collected in the prior parts the better your models will be.
+
+#### Tasks
+
+* Anomaly Detection:
+  Implement an anomaly detection model to identify unusual patterns of events that could signify emerging health risks.
+
+* Risk Prediction Model:
+  Develop a predictive model using Spark MLlib to forecast potential health risks based on historical data trends.
+  Consider features like event type, location, and time of year.
+
+#### Requirements
+
+* Models are to be evaluated using appropriate validation techniques to ensure accuracy.
+* Documentation on model choice, features used, and interpretation of results.
+
+#### Tips
+
+* You can expect some scaffolding to launch Apache Spark soon.
+
+## Project 3 (Due: May 08)
+
+### Part 1: Workflow Orchestration with Apache Airflow
 
 #### Objective
 
 Orchestrate the entire data pipeline using Apache Airflow, ensuring each component is executed efficiently and in the correct order.
+Each of these tasks should be the "lightweight" version.
+As in some attempt at error handing but it doesn't have to be perfect.
 
 #### Tasks
 
-TBD
+* Define Airflow DAGs:
+  * Create DAGs representing the workflow, starting from data ingestion with Kafka producers, categorization, loading into Spark, analysis, and finally, risk prediction.
+* Task Scheduling and Dependencies:
+  * Schedule tasks ensuring that dependencies are met, such as not starting the Spark analysis before Kafka data ingestion and categorization are completed.
+* Error Handling and Alerts:
+  * Implement error handling within your DAGs to manage failures in tasks. Set up email alerts or notifications for task failures or retries.
+* Monitoring and Optimization:
+    Utilize Airflow's monitoring tools to track pipeline performance and identify bottlenecks or inefficiencies. Document any adjustments made to optimize the workflow.
 
-## Project 3
-### Part 1: Data Visualization and Reporting
+#### Tips
+
+* You can expect some scaffolding to launch Apache Airflow soon.
+
+### Part 2: Data Visualization and Reporting
 
 #### Objective
 
@@ -131,11 +198,11 @@ Create visual representations of the processed data to highlight key findings an
 
 TBD
 
-### Part 2: Final Integration, Connecting the Parts
+### Part 3: Final Integration, Connecting the Parts
 
 Objective: Integrate all the components developed to establish an end-to-end data pipeline that simulates the Epidemic Engine, demonstrating the flow from data ingestion to visualization.
 
 #### Tasks
 
-TBD
-
+* Ensure everything runs end to end.
+  The EDA component is not meant to be part of the final "workflow"
