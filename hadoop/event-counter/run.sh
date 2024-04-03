@@ -1,7 +1,7 @@
 #!/bin/bash
 
-MAPPER="mapper.py"
-REDUCER="reducer.py"
+MAPPER="count_mapper.py"
+REDUCER="count_reducer.py"
 INPUT="/input/simulated_health_events.csv" 
 
 echo "Attempting to run:"
