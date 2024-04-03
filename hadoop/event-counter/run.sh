@@ -1,9 +1,5 @@
 #!/bin/bash
 
-MAPPER="count_mapper.py"
-REDUCER="count_reducer.py"
-INPUT="/input/simulated_health_events.csv" 
-
 echo "Attempting to run:"
 echo "hadoop jar /opt/hadoop-3.2.1/share/hadoop/tools/lib/hadoop-streaming-3.2.1.jar \\"
 echo "          -file $MAPPER -mapper $MAPPER \\"
