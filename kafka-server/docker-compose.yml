@@ -4,22 +4,22 @@
 version: "2"
 
 services:
-  # kafka-producer:
-  #   build:
-  #     context: content-producer/.
-  #     dockerfile: Dockerfile  # Name of your Dockerfile
-  #   depends_on:
-  #     - kafka
-  #   networks:
-  #     - kafka_default  # Ensure this matches the network your Kafka service uses
-  # kafka-producer:
-  #   build:
-  #     context: content-consumer/.
-  #     dockerfile: Dockerfile  # Name of your Dockerfile
-  #   depends_on:
-  #     - kafka
-  #   networks:
-  #     - kafka_default  # Ensure this matches the network your Kafka service uses
+  kafka-producer:
+     build:
+       context: content-producer/.
+       dockerfile: Dockerfile  # Name of your Dockerfile
+     depends_on:
+       - kafka
+     networks:
+       - kafka_default  # Ensure this matches the network your Kafka service uses
+  kafka-consumer:
+     build:
+       context: content-consumer/.
+       dockerfile: Dockerfile  # Name of your Dockerfile
+     depends_on:
+       - kafka
+     networks:
+       -kafka_default  # Ensure this matches the network your Kafka service uses
 
   kafka:
     image: docker.io/bitnami/kafka:3.7
