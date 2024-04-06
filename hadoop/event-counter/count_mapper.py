@@ -5,6 +5,7 @@
 # write some useful code here and print to STDOUT
 import sys
 
+
 def map_reduce_with_stdin():
 
     for line in sys.stdin:
@@ -14,5 +15,3 @@ def map_reduce_with_stdin():
 
 if __name__ == '__main__':
     map_reduce_with_stdin()
-
-    
