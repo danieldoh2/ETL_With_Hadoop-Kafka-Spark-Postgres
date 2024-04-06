@@ -7,7 +7,15 @@ services:
   # kafka-producer:
   #   build:
   #     context: content-producer/.
-  #     dockerfile: Containerfile  # Name of your Dockerfile
+  #     dockerfile: Dockerfile  # Name of your Dockerfile
+  #   depends_on:
+  #     - kafka
+  #   networks:
+  #     - kafka_default  # Ensure this matches the network your Kafka service uses
+  # kafka-producer:
+  #   build:
+  #     context: content-consumer/.
+  #     dockerfile: Dockerfile  # Name of your Dockerfile
   #   depends_on:
   #     - kafka
   #   networks:
