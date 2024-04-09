@@ -24,7 +24,7 @@ volumes:
   kafka_data:
     driver: local
 
-# networks:
-#   kafka_default:
-#     name: kafka_default
-#     driver: bridge
+networks:
+  kafka_default:
+    name: kafka_default
+    driver: bridge

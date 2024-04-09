@@ -25,7 +25,7 @@ def basic_consume(consumer):
             msg = consumer.poll(timeout=10.0)
             if msg is None:
                 continue
-            else:g
+            else:
                 print('Received message: {}'.format(
                     msg.value().decode('utf-8')))
 

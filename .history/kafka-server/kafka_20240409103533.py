@@ -15,7 +15,7 @@ running = True
 
 def basic_consume(consumer):
     try:
-        consumer.subscribe(['emergency_incident'])
+        consumer.subscribe(['dsdadsadsad'])
 
         # Seek to the end of the partitions before starting to consume messages
         # This is necessary to ensure we actually join the group
@@ -25,7 +25,7 @@ def basic_consume(consumer):
             msg = consumer.poll(timeout=10.0)
             if msg is None:
                 continue
-            else:g
+            else:
                 print('Received message: {}'.format(
                     msg.value().decode('utf-8')))
 

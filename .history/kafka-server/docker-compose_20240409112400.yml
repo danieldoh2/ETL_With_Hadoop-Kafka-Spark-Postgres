@@ -1,7 +1,7 @@
 # Copyright VMware, Inc.
 # SPDX-License-Identifier: APACHE-2.0
 
-version: "3"
+version: "2"
 
 services:
   kafka-processor:
@@ -24,7 +24,7 @@ volumes:
   kafka_data:
     driver: local
 
-# networks:
-#   kafka_default:
-#     name: kafka_default
-#     driver: bridge
+networks:
+  kafka_default:
+    name: kafka_default
+    driver: bridge
