@@ -4,7 +4,7 @@ from confluent_kafka import Consumer, KafkaError
 conf = {
     'bootstrap.servers': '44.201.154.178:9092',
     'group.id': 'my_consumer_group',
-    'auto.offset.reset': 'latest'  # Start consuming from the latest offset of the topic
+    'auto.offset.reset': 'latest'  # Start consuming from the latest of the topic
 }
 
 # Create Kafka consumer
@@ -15,17 +15,12 @@ running = True
 
 def basic_consume(consumer):
     try:
-        consumer.subscribe(['emergency_incident'])
-
-        # Seek to the end of the partitions before starting to consume messages
-        # This is necessary to ensure we actually join the group
-        consumer.poll(0)
-
+        consumer.subscribe(['test_topic'])
         while running:
             msg = consumer.poll(timeout=10.0)
             if msg is None:
                 continue
-            else:g
+            else:
                 print('Received message: {}'.format(
                     msg.value().decode('utf-8')))
 
