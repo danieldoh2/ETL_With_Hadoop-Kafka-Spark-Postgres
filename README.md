@@ -23,3 +23,9 @@ Our service (kafka-producer) is the container that executes the creation of cons
   2. It utilizes jq (JSON data parser) to extract event_type and severity from the events.
   3. Using the extracted information, it dynamically creates producers that broadcast those events into the 6 appropriate topics.
      
+Note: It worked perfectly on macOS machine, but we ran into some slight complications when testing it on windows.
+If it doesn't work as intended, please refer to this link to see the successful implementation of the Producers:
+https://docs.google.com/document/d/10U5_tNxQ_Vmp4mBXHuWffauK8I08qaObgNDsEn1RCFo
+
+[https://docs.google.com/document/d/10U5_tNxQ_Vmp4mBXHuWffauK8I08qaObgNDsEn1RCFo
+](url)
