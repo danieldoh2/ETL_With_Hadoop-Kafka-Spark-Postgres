@@ -1,0 +1,30 @@
+# Copyright VMware, Inc.
+# SPDX-License-Identifier: APACHE-2.0
+
+version: "3"
+
+services:
+  kafka-processor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./kafka_processor.sh:/usr/local/bin/kafka_processor.sh
+    environment:
+      - KAFKA_BOOTSTRAP_SERVER=44.201.154.178:9092
+    depends_on:
+      - kafka
+
+  kafka:
+    image: bitnami/kafka:latest
+    ports:
+      - "9092:9092"
+
+volumes:
+  kafka_data:
+    driver: local
+
+# networks:
+#   kafka_default:
+#     name: kafka_default
+#     driver: bridge

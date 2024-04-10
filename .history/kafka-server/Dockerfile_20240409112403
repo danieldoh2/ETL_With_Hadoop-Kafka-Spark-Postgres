@@ -1,0 +1,10 @@
+FROM docker.io/bitnami/kafka:3.7
+
+# Install jq (JSON processor)
+RUN apt-get update && apt-get install -y jq
+
+# Copy the script into the container
+COPY kafka_processor.sh /usr/local/bin/
+
+# Set the default command to run when the container starts
+CMD ["kafka_processor.sh"]
