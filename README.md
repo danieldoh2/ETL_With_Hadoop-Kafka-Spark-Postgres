@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## Instructions for Running Project ##
+=======
+## (finalized contents are in main branch) ##
+>>>>>>> 93181a5 (Update README.md)
 
 1. run `docker-compose up --build` to start docker containers
 
