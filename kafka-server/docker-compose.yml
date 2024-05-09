@@ -84,6 +84,7 @@ services:
   #   volumes:
   #     - kafka_data:/data:rw
 volumes:
+  pgdata:
   kafka_data:
     driver: local
 
