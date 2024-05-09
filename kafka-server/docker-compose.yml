@@ -1,14 +1,23 @@
-version: "2"
+version: "3.8"
 
 services:
-  kafka-processor:
-    build:
-      context: .
-      dockerfile: Dockerfile # Name of your Dockerfile
-    depends_on:
-      - kafka
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ./data/databases/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     networks:
-      - kafka_default # Ensure this matches the network your Kafka service uses
+      - kafka_default
+    
 
   kafka:
     image: docker.io/bitnami/kafka:3.7
@@ -25,9 +34,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-    volumes:
-      - "kafka_data:/bitnami"
-
     environment:
       # KRaft settings
       - KAFKA_CFG_NODE_ID=0
@@ -39,14 +45,48 @@ services:
       - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
       - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
       - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=PLAINTEXT
+    volumes:
+      - "kafka_data:/bitnami"
     networks:
-      - kafka_default # Ensure this matches the network your Kafka service uses
+      - kafka_default
 
+  kafka-processor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - kafka
+      - postgres
+    networks:
+      - kafka_default 
+    environment:
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      KAFKA_BOOTSTRAP_SERVER: kafka:9092
+  # d-pyspark-jupyter:
+  #   image: jupyter/pyspark-notebook:spark-3.3.0
+  #   user: root
+  #   container_name: ed-pyspark-jupyter-lab
+  #   ports:
+  #     - 8888:8888
+  #     - 4040:4040
+  #   environment:
+  #     JUPYTER_PORT: 8888
+  #     SPARK_UI_PORT: 4040
+  #     GRANT_SUDO: yes
+  #   healthcheck:
+  #     test: ["CMD", "curl", "-f", "http://localhost:8888"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+  #   volumes:
+  #     - kafka_data:/data:rw
 volumes:
   kafka_data:
     driver: local
 
 networks:
   kafka_default:
-    name: kafka_default
-    driver: bridge
+    driver: bridge 
