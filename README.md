@@ -10,7 +10,7 @@
 3. run `make hadoop_solved` should produce solution
 
 
-##Project Layout Documentation
+### Project Layout Documentation
 
 
 ## Kafka Server
@@ -19,7 +19,7 @@
 3. kafka_sqlite.py: Consumer script that consumes messages from Kafka and exports to SQLITE
 4. health_data.db: SQLite DB with persisted health event data
 
-#NOTE: We were successfully able to persist data in both PostgreSQL and Sqlite, but we had trouble connecting it to our Spark Dataframe in our notebook.
+# NOTE: We were successfully able to persist data in both PostgreSQL and Sqlite, but we had trouble connecting it to our Spark Dataframe in our notebook.
 
 ## Spark Explore
 
