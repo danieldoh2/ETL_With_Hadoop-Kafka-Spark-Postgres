@@ -10,23 +10,20 @@
 3. run `make hadoop_solved` should produce solution
 
 
+##Project Layout Documentation
 
-## Instructions for Running Project (Kafka) ##
-1. cd to kafka directory.
-2. Run docker-compose up. 
 
-#Structure of Project
-We have the kafka process running within 1-2 containers.
-All logic for the producers/consumers are written within the kafka_processor sh script.
+## Kafka Server
+1. Kafka.py: Consumer script that consumes messages from Kafka and exports to PostgreSQL
+2. test_kafka.py: pytest script that tests our functions for consumption & Postgres instantiation/connection.
+3. kafka_sqlite.py: Consumer script that consumes messages from Kafka and exports to SQLITE
+4. health_data.db: SQLite DB with persisted health event data
 
-Our service (kafka-producer) is the container that executes the creation of consumers and producers using the kafka_processor sh script.
-  1. It intercepts the stream of health_events at 44.201.154.178:9092 on the topic health_events.
-  2. It utilizes jq (JSON data parser) to extract event_type and severity from the events.
-  3. Using the extracted information, it dynamically creates producers that broadcast those events into the 6 appropriate topics.
-     
-Note: It worked perfectly on macOS machine, but we ran into some slight complications when testing it on windows.
-If it doesn't work as intended, please refer to this link to see the successful implementation of the Producers:
-https://docs.google.com/document/d/10U5_tNxQ_Vmp4mBXHuWffauK8I08qaObgNDsEn1RCFo
+#NOTE: We were successfully able to persist data in both PostgreSQL and Sqlite, but we had trouble connecting it to our Spark Dataframe in our notebook.
 
-[https://docs.google.com/document/d/10U5_tNxQ_Vmp4mBXHuWffauK8I08qaObgNDsEn1RCFo
-](url)
+## Spark Explore
+
+1. EDA.ipynb: Contains EDA visualizations
+2. Webpage visualizations (Directory) Contains an HTML web page that hosts our graphs. You must go live to see these graphs. If not, you can simply see the graphs themselves on the directory.
+3. 
+
