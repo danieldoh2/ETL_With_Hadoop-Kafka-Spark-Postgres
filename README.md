@@ -39,5 +39,9 @@
 
 We have our visualizations as an html file using the data and models shown in our notebooks. 
 
+## Tests
+
+To run the tests, execute  `pytest` for the script that writes the topics into the postgres database.
+
    
 
