@@ -37,7 +37,7 @@
 
 ## Visualizations
 
-We have our visualizations as an html file using the data and models shown in our notebooks. 
+We have our visualizations as an html file using the data and models shown in our notebooks. Navigate to  `spark-explore` to view the html file.
 
 ## Tests
 
