@@ -24,6 +24,6 @@
 ## Spark Explore
 
 1. EDA.ipynb: Contains EDA visualizations
-2. Webpage visualizations (Directory) Contains an HTML web page that hosts our graphs. You must go live to see these graphs. If not, you can simply see the graphs themselves on the directory.
-3. 
+2. Webpage visualizations (Directory) Contains an HTML web page that hosts our graphs. You must go live to see these graphs. If not, you can simply see the graphs themselves in the directory. Visualizations included: Past Outbreaks (Geographical World Map, Anomaly Histogram), Next predicted outbreak, Event Streaming Visualization, Model Performance
+4. 
 
