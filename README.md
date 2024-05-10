@@ -10,7 +10,7 @@
 3. run `make hadoop_solved` should produce solution
 
 
-### Project Layout Documentation
+# Project Layout Documentation
 
 
 ## Kafka Server
