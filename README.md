@@ -43,6 +43,6 @@ To run the tests, execute  `pytest` for the script that writes the topics into t
 1. To use Kubernetes and Google Console to deploy the containers, first navigate to `kafka-server` and execute the command `kubectl apply -f .`
 2. Run `kubectl get services` to show services that are running.
    
-[image]!(https://github.com/BU-CDS-DS539-2024-Spring/epidemic-engine-project-danielmaryalicia/blob/ebeeb1b960fd102b774b516f8ecc6912ce2cde2a/Screen%20Shot%202024-05-09%20at%2011.19.25%20PM.png)
+[image](https://github.com/BU-CDS-DS539-2024-Spring/epidemic-engine-project-danielmaryalicia/blob/ebeeb1b960fd102b774b516f8ecc6912ce2cde2a/Screen%20Shot%202024-05-09%20at%2011.19.25%20PM.png)
 
 
