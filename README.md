@@ -29,7 +29,11 @@
 ## Kubernetes
 
 1. To use Kubernetes and Google Console to deploy the containers, first navigate to `kafka-server` and execute the command `kubectl apply -f .`
-2. Run `kubectl get services` to show services that are running. 
+2. Run `kubectl get services` to show services that are running.
+
+## Running the models
+
+1. We were tried to containerize our models and train the models using the data from kafka topic, sqlite database, and postgres. We were able to write the topics into postgres and persist it, but we had trouble retrieving it in the spark notebook. We also did not understand what it meant by retraining the data and how to containerize it while running the model in the jupyternotebook server that was launched through the docker compose file so we did as much as we can given the limited time.
 
    
 
