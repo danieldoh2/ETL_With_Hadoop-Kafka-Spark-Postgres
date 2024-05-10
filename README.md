@@ -25,5 +25,11 @@
 
 1. EDA.ipynb: Contains EDA visualizations
 2. Webpage visualizations (Directory) Contains an HTML web page that hosts our graphs. You must go live to see these graphs. If not, you can simply see the graphs themselves in the directory. **Visualizations** **included**: **Past Outbreaks** (Geographical World Map, Anomaly Histogram), **Next predicted outbreak**, **Event Streaming Visualization**, ** LSTM Model Performance**
-4. 
+
+## Kubernetes
+
+1. To use Kubernetes and Google Console to deploy the containers, first navigate to `kafka-server` and execute the command `kubectl apply -f .`
+2. Run `kubectl get services` to show services that are running. 
+
+   
 
