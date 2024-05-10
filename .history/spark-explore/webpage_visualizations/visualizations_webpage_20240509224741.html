@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Data Visualizations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .visualization {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .visualization img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .visualization p {
+            font-size: 1.1em;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Health Data Visualizations</h1>
+        <p>Exploring health event anomalies and outbreak predictions</p>
+    </header>
+
+    <div class="container">
+        <div class="visualization">
+            <h2>Anomaly Map</h2>
+            <img src="anomaly_map.png" alt="Anomaly Map">
+            <p>A global view of health event anomalies across different cities.</p>
+        </div>
+
+        <div class="visualization">
+            <h2>Histogram of Anomaly Scores</h2>
+            <img src="anomaly_scores.png" alt="Histogram of Anomaly Scores">
+            <p>Distribution of anomaly scores detected among the health events.</p>
+        </div>
+
+        <div class="visualization">
+            <h2>Number of Events Streamed by Day</h2>
+            <img src="eventstreaming.png" alt="Number of Events Streamed by Day">
+            <p>Tracking the count of streamed health events over time.</p>
+        </div>
+
+        <div class="visualization">
+            <h2>Time Series Forecasting with LSTM</h2>
+            <img src="LSTM_Model_performance.png" alt="LSTM Model Performance">
+            <p>Forecasting health event trends with LSTM model predictions.</p>
+        </div>
+
+        <div class="visualization">
+            <h2>Next Predicted Outbreak Event</h2>
+            <img src="predicted_outbreak.png" alt="Predicted Outbreak">
+            <p>Predictions of the next outbreak events based on historical data.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Health Event Visualizations | Powered by Your Data Analysis</p>
+    </footer>
+
+</body>
+
+</html>

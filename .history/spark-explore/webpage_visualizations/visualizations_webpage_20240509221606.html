@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Event Visualizations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        .visualization {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .visualization img {
+            max-width: 80%;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .back-to-top {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Health Event Visualizations</h1>
+    <p>Visualizing anomaly detection and risk prediction models</p>
+
+    <div class="visualization" id="anomaly-map">
+        <h2>Anomaly Detection Map</h2>
+        <img src="anomaly_map.png" alt="Anomaly Detection Map">
+    </div>
+
+    <div class="visualization" id="anomaly-scores">
+        <h2>Anomaly Score Distribution</h2>
+        <img src="anomaly_scores.png" alt="Anomaly Score Distribution">
+    </div>
+
+    <div class="visualization" id="lstm-model">
+        <h2>LSTM Model Performance</h2>
+        <img src="LSTM_Model_performance.png" alt="LSTM Model Performance">
+    </div>
+
+    <div class="visualization" id="predicted-outbreak">
+        <h2>Next Predicted Outbreak Event</h2>
+        <img src="predicted_outbreak.png" alt="Next Predicted Outbreak Event">
+    </div>
+
+    <div class="back-to-top">
+        <a href="#top">Back to Top</a>
+    </div>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 
 kafka-console-consumer.sh --topic "health_events" --bootstrap-server 44.201.154.178:9092 | \
 while IFS= read -r message; do
@@ -7,6 +7,8 @@ while IFS= read -r message; do
         echo "Skipping non-JSON message: $message"
         continue
     fi
+
+  
 
     # Trim newline character at the end of the message
     message=$(echo "$message" | tr -d '\n')
