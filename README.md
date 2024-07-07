@@ -19,9 +19,6 @@
 3. kafka_sqlite.py: Consumer script that consumes messages from Kafka and exports to SQLITE
 4. health_data.db: SQLite DB with persisted health event data
 
-# NOTE: We were successfully able to persist data in both PostgreSQL and Sqlite, but we had trouble connecting it to our Spark Dataframe in our notebook.
-
-![postgres](https://github.com/BU-CDS-DS539-2024-Spring/epidemic-engine-project-danielmaryalicia/blob/eabe8de3da6d99b67a2bc835e914b12faec2d830/PNG%20image.png) 
 
 ## Spark Explore
 
@@ -29,9 +26,6 @@
 2. Webpage visualizations (Directory) Contains an HTML web page that hosts our graphs. You must go live to see these graphs. If not, you can simply see the graphs themselves in the directory. **Visualizations** **included**: **Past Outbreaks** (Geographical World Map, Anomaly Histogram), **Next predicted outbreak**, **Event Streaming Visualization**, ** LSTM Model Performance**
 
 
-## Running the models
-
-1. We were tried to containerize our models and train the models using the data from kafka topic, sqlite database, and postgres. We were able to write the topics into postgres and persist it, but we had trouble retrieving it in the spark notebook. We also did not understand what it meant by retraining the data and how to containerize it while running the model in the jupyternotebook server that was launched through the docker compose file so we did as much as we can given the limited time.
 
 ## Visualizations
 
